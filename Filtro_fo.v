@@ -73,17 +73,19 @@ read:
 		8'h46: n_state = load; //9
 		8'h45: n_state = load; //0
 		
-		// parametros alerta y peligro humo
+		// parametros Letras
 		
-		8'h33: n_state = load;  //H
-		8'h1C: n_state = load; // A
-		8'h4D: n_state = load; // P
-		
-		// parametros alerta gas
-		
+		8'h33: n_state = load; //H
+		8'h1C: n_state = load; //A
+		8'h4D: n_state = load; //P
+		8'h43: n_state = load; //I
+		8'h35: n_state = load; //Y
+		8'h31: n_state = load; //N
 		8'h34: n_state = load; // G
 		8'h5A: n_state = load; //enter
 		8'h2D: n_state = load; //R
+		
+		//Lo que se realiza con F0
 		
 		8'hF0: n_state = read;
 		default: n_state = idle;

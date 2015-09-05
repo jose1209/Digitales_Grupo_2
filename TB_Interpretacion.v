@@ -62,10 +62,10 @@ always
 
 	initial begin
 		// Initialize Inputs
+		
 		flag = 0;
 		DATO = 0;
 		
-		// Add stimulus here
 		#50;
 		DATO = 8'h5A;
 		flag = 0;
@@ -100,6 +100,42 @@ always
 		
 		#50;
 		DATO = 8'h1C;
+		flag = 1;
+		
+		#50;
+		DATO = 8'h2D;
+		flag = 0;
+		
+		#50;
+		DATO = 8'h2D;
+		flag = 1;
+		
+		#50;
+		DATO = 8'h5A;
+		flag = 0;
+		
+		#50;
+		DATO = 8'h5A;
+		flag = 1;
+		
+		#50;
+		DATO = 8'h3D;
+		flag = 1;
+		
+		#50;
+		DATO = 8'h45;
+		flag = 1;
+		
+		#50;
+		DATO = 8'h4D;
+		flag = 1;
+		
+		#50;
+		DATO = 8'h35;
+		flag = 0;
+		
+		#50;
+		DATO = 8'h34;
 		flag = 1;
 		
 		#50;
