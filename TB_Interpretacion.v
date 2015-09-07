@@ -27,7 +27,7 @@ module TB_Interpretacion;
 	// Inputs
 	reg CLK;
 	reg flag;
-	reg [7:0] DATO;
+	reg [7:0] Dato;
 
 	// Outputs
 	wire [7:0] STtemp1;
@@ -41,7 +41,7 @@ module TB_Interpretacion;
 	Recep uut (
 		.CLK(CLK), 
 		.flag(flag), 
-		.DATO(DATO), 
+		.Dato(Dato), 
 		.STtemp1(STtemp1), 
 		.STtemp2(STtemp2), 
 		.STPeligro(STPeligro), 
@@ -64,82 +64,152 @@ always
 		// Initialize Inputs
 		
 		flag = 0;
-		DATO = 0;
+		Dato = 0;
 		
-		#50;
-		DATO = 8'h5A;
+		
+		#10;
+		Dato = 8'h43;
 		flag = 0;
 		
-		#50;
-		DATO = 8'h5A;
+		
+		#10;
+		Dato = 8'h43;
 		flag = 1;
 		
-		#50;
-		DATO = 8'h16;
+		#10;
+		Dato = 8'h5A;
 		flag = 0;
 		
-		#50;
-		DATO = 8'h16;
+		#10;
+		Dato = 8'h5A;
 		flag = 1;
 		
-		#50;
-		DATO = 8'h3E;
+		#10;
+		Dato = 8'h16;
 		flag = 0;
 		
-		#50;
-		DATO = 8'h3E;
+		#10;
+		Dato = 8'h16;
 		flag = 1;
 		
-		#50;
-		DATO = 8'h33;
-		flag = 1;
-		
-		#50;
-		DATO = 8'h1C;
+		#10;
+		Dato = 8'h3E;
 		flag = 0;
 		
-		#50;
-		DATO = 8'h1C;
+		#10;
+		Dato = 8'h3E;
 		flag = 1;
 		
-		#50;
-		DATO = 8'h2D;
+		#10;
+		Dato = 8'h33;
 		flag = 0;
 		
-		#50;
-		DATO = 8'h2D;
+		#10;
+		Dato = 8'h33;
 		flag = 1;
 		
-		#50;
-		DATO = 8'h5A;
+		#10;
+		Dato = 8'h1C;
 		flag = 0;
 		
-		#50;
-		DATO = 8'h5A;
+		#10;
+		Dato = 8'h1C;
 		flag = 1;
 		
-		#50;
-		DATO = 8'h3D;
-		flag = 1;
-		
-		#50;
-		DATO = 8'h45;
-		flag = 1;
-		
-		#50;
-		DATO = 8'h4D;
-		flag = 1;
-		
-		#50;
-		DATO = 8'h35;
+		/*#10;
+		Dato = 8'h2D;
 		flag = 0;
 		
-		#50;
-		DATO = 8'h34;
+		#10;
+		Dato = 8'h2D;
+		flag = 1;*/
+		
+		#10;
+		Dato = 8'h5A;
+		flag = 0;
+		
+		#10;
+		Dato = 8'h5A;
 		flag = 1;
 		
-		#50;
-		DATO = 8'h2D;
+		#10;
+		Dato = 8'h3D;
+		flag = 0;
+		
+		#10;
+		Dato = 8'h3D;
+		flag = 1;
+		
+		#10;
+		Dato = 8'h45;
+		flag = 0;
+		
+		#10;
+		Dato = 8'h45;
+		flag = 1;
+		
+		#10;
+		Dato = 8'h4D;
+		flag = 0;
+		
+		#10;
+		Dato = 8'h4D;
+		flag = 1;
+		
+		#10;
+		Dato = 8'h34;
+		flag = 0;
+		
+		#10;
+		Dato = 8'h34;
+		flag = 1;
+		
+		#10;
+		Dato = 8'h35;
+		flag = 0;
+		
+		#10;
+		Dato = 8'h35;
+		flag = 1;
+		
+		#10;
+		Dato = 8'h2D;
+		flag = 0;
+		
+		#10;
+		Dato = 8'h2D;
+		flag = 1;
+		
+		#10;
+		Dato = 8'h5A;
+		flag = 0;
+		
+		#10;
+		Dato = 8'h5A;
+		flag = 1;
+		
+		#10;
+		Dato = 8'h5A;
+		flag = 0;
+		
+		#10;
+		Dato = 8'h5A;
+		flag = 1;
+		
+		#10;
+		Dato = 8'h2E;
+		flag = 0;
+		
+		#10;
+		Dato = 8'h2E;
+		flag = 1;
+		
+		#10;
+		Dato = 8'h2E;
+		flag = 0;
+		
+		#10;
+		Dato = 8'h2E;
 		flag = 1;
 	end
       

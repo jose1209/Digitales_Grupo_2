@@ -78,7 +78,7 @@ always@(posedge CLK)
 	//Parte Combinacional
 always@(posedge flag)
 	begin
-	
+	R5 = 1'b0;
 		case(stACT)
 			
 			ST1:
@@ -98,7 +98,7 @@ always@(posedge flag)
 				end
 			ST2:						//Decenas
 				begin
-					if(Dato != H && Dato != A && Dato != P && Dato != G && Dato != Enter && Dato != Reset)
+					if(Dato != H && Dato != A && Dato != P && Dato != G && Dato != Enter && Dato != Reset && Dato != Y && Dato != N && Dato != I)
 						begin
 							RT1 = Dato;
 							stSIG = ST3;
@@ -108,7 +108,7 @@ always@(posedge flag)
 				end
 			ST3:						//Unidades
 				begin
-					if(Dato != H && Dato != A && Dato != P && Dato != G && Dato != Enter && Dato != Reset)
+					if(Dato != H && Dato != A && Dato != P && Dato != G && Dato != Enter && Dato != Reset && Dato != Y && Dato != N && Dato != I)
 						begin
 							RT2 = Dato;
 							stSIG = ST1;
@@ -118,8 +118,6 @@ always@(posedge flag)
 				end
 			ST4:	
 				begin
-					RT1 = 8'h00;
-					RT2 = 8'h00;
 					R2 = 1'b0;
 					R3 = 1'b0;
 					R4 = 1'b0;

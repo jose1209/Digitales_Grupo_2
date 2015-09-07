@@ -58,11 +58,10 @@ Filtro_Fo instance_Filtro (
 
 Recep instance_Interpretacion (
     .CLK(CLK_G),
-	 //.RESET(reset_G),
     .flag(Bandera), 
-    .DATO(Datos), 
-    .STtemp1(Unidades), 
-    .STtemp2(Decenas), 
+    .Dato(Datos), 
+    .STtemp1(Decenas), 
+    .STtemp2(Unidades), 
     .STPeligro(Peligro), 
     .STAlerta(Alerta), 
     .STGas(Gas), 
