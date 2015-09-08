@@ -23,10 +23,11 @@ module Recep(
 	input wire [7:0] Dato,
 	output wire [7:0] STtemp1,  
 	output wire [7:0] STtemp2,  
-	output wire STPeligro,   
+	output wire STPeligro,  
+	output reg Bandera,
 	output wire STAlerta,
-	output wire STGas,	
-	output wire Greset	
+	output wire STGas,
+	output wire Greset
     );
 	 
 	//Parametros 
@@ -83,8 +84,13 @@ always@(posedge flag)
 			
 			ST1:
 				begin
+					Bandera = 1'b0;
 					if(Dato == Enter)
+					begin
+						Bandera = 1'b0;
 						stSIG = ST2;
+					end
+						
 					else if(Dato == Reset)
 						stSIG = ST4;
 					else if(Dato == H)
@@ -111,6 +117,7 @@ always@(posedge flag)
 					if(Dato != H && Dato != A && Dato != P && Dato != G && Dato != Enter && Dato != Reset && Dato != Y && Dato != N && Dato != I)
 						begin
 							RT2 = Dato;
+							Bandera = 1'b1;
 							stSIG = ST1;
 						end
 					else

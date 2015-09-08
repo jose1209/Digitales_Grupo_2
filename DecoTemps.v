@@ -19,14 +19,14 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module DecoTemps(
-	input wire CLK,
+	input wire CLK,Bandera,
 	input wire reset,
 	input wire [7:0] UNIDADES,DECENAS,
 	output wire [3:0] TempDecsalida		
 
     );
-	
-reg [7:0] T1,T2,din;
+wire [7:0] din;	
+reg [7:0] T1,T2;
 reg [3:0] Tempslocal; 
 reg [3:0] TempDec; 
 
@@ -36,9 +36,8 @@ reg [3:0] TempDec;
 
 always @*
 begin
-din = T2 + T1;
 Tempslocal = 4'b0000;
-	
+
 	if(din <= 8'h18)
 		Tempslocal = 4'b0001;
 	else if(din <= 8'h24)
@@ -58,6 +57,19 @@ Tempslocal = 4'b0000;
 		end		
 end
 
+//Registro para DIN
+reg [7:0] current_state, next_state;
+always@* 
+begin
+
+	if(Bandera)
+		next_state = T2 + T1; //carga
+	else
+		next_state = current_state;//parada
+		
+end
+
+assign din = current_state; 
 
 
 //REGISTROS
@@ -65,9 +77,15 @@ end
 always @(posedge CLK, posedge reset)
 begin
 	if(reset)
-		TempDec <= 4'b0000;
+		begin
+		TempDec <= 0;
+		current_state <= 0;
+		end
 	else
+	begin
 		TempDec <= Tempslocal;
+		current_state <= next_state;
+	end
 end
 
 assign TempDecsalida = TempDec;

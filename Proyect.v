@@ -27,16 +27,15 @@ input wire ps2clk,
 input wire Rx_en,
 output wire [3:0] Temps,
 output wire RESETFSM,
-output wire Gas, Alerta,Peligro,xD
+output wire Gas, Alerta,Peligro
     );
 	 
+wire Band;
 wire [7:0] Datos;
 wire Enable;
 wire Bandera;
 wire [7:0] Unidades;
 wire [7:0] Decenas;
-
-assign xD = Enable;
 
 PS2Reciever instance_InterPs2 (
     .clk(CLK_G), 
@@ -65,7 +64,8 @@ Recep instance_Interpretacion (
     .STPeligro(Peligro), 
     .STAlerta(Alerta), 
     .STGas(Gas), 
-    .Greset(RESETFSM)
+    .Greset(RESETFSM),
+	 .Bandera(Band)
     ); 
 
 DecoTemps instance_DecoTemps (
@@ -73,7 +73,8 @@ DecoTemps instance_DecoTemps (
     .reset(reset_G), 
     .UNIDADES(Unidades), 
     .DECENAS(Decenas), 
-    .TempDecsalida(Temps)
+    .TempDecsalida(Temps),
+	 .Bandera(Band)
     );
 
 endmodule
